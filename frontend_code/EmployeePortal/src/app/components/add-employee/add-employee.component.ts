@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { EmployeeServiceService } from 'src/app/services/employee-service.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-add-employee',
@@ -21,7 +22,7 @@ export class AddEmployeeComponent{
     // Prevent Saturday and Sunday from being selected.
     return day !== 0 && day !== 6 ;
   }
-  constructor(private formBuilder: FormBuilder, private router:Router, private service:EmployeeServiceService, private _toast:ToastrService) {
+  constructor(private formBuilder: FormBuilder, private router:Router, private service:EmployeeServiceService, public dialog: MatDialog, private _toast:ToastrService) {
     this.createemployeeForm();
   }
 
@@ -65,6 +66,10 @@ export class AddEmployeeComponent{
       (err:any) => {
         this._toast.error('Unable to Add Employee')
       })
+  }
+
+  close(){
+    this.dialog.closeAll()
   }
 
 }

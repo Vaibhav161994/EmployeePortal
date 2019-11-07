@@ -35,7 +35,6 @@ export class ListComponent implements OnInit {
   openblockDialog(){
 		const dialogRef = this.dialog.open(AddEmployeeComponent, {
 			width: '450px',
-			// data: { name: this.senderlist }
 		});
 
 		dialogRef.afterClosed().subscribe(result => {
