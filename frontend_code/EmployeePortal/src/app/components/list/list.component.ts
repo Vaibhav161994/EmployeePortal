@@ -10,7 +10,7 @@ import { AddEmployeeComponent } from '../add-employee/add-employee.component';
 })
 export class ListComponent implements OnInit {
 
-  displayedColumns = ['id', 'fname', 'lname', 'gender', 'dob', 'dept'];
+  displayedColumns = ['fname', 'lname', 'gender', 'dob', 'dept'];
 
   dataSource: MatTableDataSource<EmployeeData>;
 
